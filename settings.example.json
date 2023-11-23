@@ -7,6 +7,9 @@
       "runlevel": {
         "godmode": 0,
         "youtube": 0,
+        "video": 0,
+        "img": 0,
+        "iframe": 0,
         "joke": 0,
         "fact": 0,
         "backflip": 0,
@@ -27,16 +30,16 @@
       },
       "room_max": 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
       "owner": null,
-      "pitch": {
-        "max": 125,
-        "min": 15,
-        "default": "random"
-      },
-      "speed": {
-        "max": 275,
-        "min": 125,
-        "default": "random"
-      },
+			"pitch": {
+				"max": 400,
+				"min": 50,
+				"default": "random"
+			},
+			"speed": {
+				"max": 200,
+				"min": 50,
+				"default": "random"
+			},
       "defaultName": "Anonymous"
     },
     "private": {
@@ -46,6 +49,9 @@
       "runlevel": {
         "godmode": 0,
         "youtube": 0,
+        "video": 0,
+        "img": 0,
+        "iframe": 0,
         "joke": 0,
         "fact": 0,
         "backflip": 0,
@@ -66,16 +72,16 @@
       },
       "room_max": 99999999999999999999999999999999999999999999999999999999999999999999999999999999999999,
       "owner": null,
-      "pitch": {
-        "max": 125,
-        "min": 15,
-        "default": "random"
-      },
-      "speed": {
-        "max": 275,
-        "min": 125,
-        "default": "random"
-      },
+			"pitch": {
+				"max": 400,
+				"min": 50,
+				"default": "random"
+			},
+			"speed": {
+				"max": 200,
+				"min": 50,
+				"default": "random"
+			},
       "defaultName": "Anonymous"
     }
   },
@@ -111,7 +117,22 @@
     "gold",
     "orange",
     "yellow",
-    "magenta"
+    "magenta",
+    "clippy",
+    "diogo",
+    "genie",
+    "indigo",
+    "dark_green",
+    "dark_purple",
+    "dark_red",
+    "merlin",
+    "max",
+    "peedy",
+    "pink2",
+    "program",
+    "red_pink",
+    "teal",
+    "rainbow"
   ],
   "banLength": 1440,
   "port": 3000,
