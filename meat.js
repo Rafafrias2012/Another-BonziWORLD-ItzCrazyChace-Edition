@@ -243,6 +243,34 @@ let userCommands = {
         this.public.color = "pope";
         this.room.updateUser(this);
     },
+    "pope2": function() {
+        this.public.color = "peedy_pope";
+        this.room.updateUser(this);
+    },
+    "new_pope": function() {
+        this.public.color = "pope2";
+        this.room.updateUser(this);
+    },
+    "god": function() {
+        this.public.color = "god";
+        this.room.updateUser(this);
+    },
+    "god2": function() {
+        this.public.color = "oldgod";
+        this.room.updateUser(this);
+    },
+    "dunce": function() {
+        this.public.color = "dunce";
+        this.room.updateUser(this);
+    },
+    "rainbow_pope": function() {
+        this.public.color = "rainbow_pope";
+        this.room.updateUser(this);
+    },
+    "zander": function() {
+        this.public.color = "zander";
+        this.room.updateUser(this);
+    },
     "asshole": function() {
         this.room.emit("asshole", {
             guid: this.guid,
