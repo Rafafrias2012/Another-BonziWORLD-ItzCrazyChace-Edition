@@ -63,7 +63,7 @@
 			<div id="login_card" style="display:none">
 				<input id="login_name" type="text" placeholder="Enter a Nickname">
 				<input id="login_room" type="text" placeholder="Enter a Room ID (Optional!)">
-				<button onclick="if (!window.__cfRLUnblockHandlers) return false; login()" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;" data-cf-modified-a3ecac714c9fdd3f044496b6-=""><div id="login_go"></div></button>
+				<button onclick="login()" style="color: transparent; background-color: transparent; border-color: transparent; cursor: default;"><div id="login_go"></div></button>
 				<div id="login_error" style="display:none"></div>
 			</div>
 			<div id="login_load">loading</div>
@@ -94,7 +94,6 @@
 				<h1>You got banned!</h1><br>
 				<br>
 				<b>Why? </b><span id="ban_reason"></span><br>
-                                You will no longer join Public Rooms.<br>
 				<b>When is it over? </b><span id="ban_end"></span><br>
 				<br>
 				Room ID: <span class="room_id">???</span><br>
