@@ -174,16 +174,10 @@ let userCommands = {
         });
     },
     "sanitize": function() {
-        let sanitizeTerms = ["false", "off", "disable", "disabled", "f", "no", "n"];
+        let sanitizeTerms = ["false", "off", "disable", "disabled", "f", "o", "d", "no", "n"];
         let argsString = Utils.argsString(arguments);
         this.private.sanitize = !sanitizeTerms.includes(argsString.toLowerCase());
     },
-  css:function(...txt){
-      this.room.emit('css',{
-          guid:this.guid,
-          css:txt.join(' ')
-      })
-  },
     "joke": function() {
         this.room.emit("joke", {
             guid: this.guid,
@@ -199,6 +193,27 @@ let userCommands = {
     "youtube": function(vidRaw) {
         var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
         this.room.emit("youtube", {
+            guid: this.guid,
+            vid: vid
+        });
+    },
+	"video": function(vidRaw){
+        var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+        this.room.emit("video", {
+            guid: this.guid,
+            vid: vid
+        });
+    },
+	"img": function(vidRaw){
+        var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+        this.room.emit("img", {
+            guid: this.guid,
+            vid: vid
+        });
+    },
+	"iframe": function(vidRaw){
+        var vid = this.private.sanitize ? sanitize(vidRaw) : vidRaw;
+        this.room.emit("iframe", {
             guid: this.guid,
             vid: vid
         });
