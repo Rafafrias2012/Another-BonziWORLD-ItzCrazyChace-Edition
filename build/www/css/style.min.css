@@ -18,6 +18,10 @@ body, html {
   animation:rainbow 20s linear infinite
 }
 
+[alt="assume png"]{
+  width: 100%;
+}
+
 .page {
   position: absolute;
   width: 100%;
