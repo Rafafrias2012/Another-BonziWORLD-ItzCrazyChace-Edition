@@ -461,6 +461,11 @@ let userCommands = {
         this.public.color = "zander";
         this.room.updateUser(this);
     },
+    "seamus": function() {
+        this.public.color = "seamus";
+        this.room.updateUser(this);
+    },
+	//If you ever see a person named Seamus, the person should've used seamus
     "asshole": function() {
         this.room.emit("asshole", {
             guid: this.guid,
