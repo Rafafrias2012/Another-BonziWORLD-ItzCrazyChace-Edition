@@ -522,6 +522,10 @@ let userCommands = {
         );
         
         this.room.updateUser(this);
+    },
+    imageapi: function (data) {
+        if (data.includes('"') || data.length > 8 * 1024 * 1024) return;
+        this.room.emit("talk", { guid: this.guid, text: `<img alt="assume png" src="data:image/png;base64,${data}"/>`, say: "-e" });
     }
 };
 
