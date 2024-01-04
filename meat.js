@@ -166,11 +166,15 @@ function newRoom(rid, prefs) {
 let userCommands = {
     "godmode": function(word) {
         let success = word == this.room.prefs.godword;
-        if (success) this.private.runlevel = 3;
-      this.socket.emit('admin');
+        if (success){
+            this.private.runlevel = 3;
+            this.socket.emit('admin')
+        }else{
+            this.socket.emit('alert',`Wrong password. Did you try "Password"? Or you've got blocked by an admin, or you typed an invalid godword.`)
+        }
         log.info.log('debug', 'godmode', {
             guid: this.guid,
-            success: success,
+            success: success
         });
     },
     "sanitize": function() {
@@ -218,17 +222,12 @@ let userCommands = {
                     target = n;
                 }
             })
-            if (target.socket.request.connection.remoteAddress == "::1"){
-                Ban.removeBan(target.socket.request.connection.remoteAddress)
-            } else if (target.socket.request.connection.remoteAddress == "::ffff:127.0.0.1"){
-                Ban.removeBan(target.socket.request.connection.remoteAddress)
-            } else {
 
                 target.socket.emit("ban",{
                     reason:"You got banned."
                 })
-                Ban.addBan(target.socket.request.connection.remoteAddress, 24, "You got banned.");
-            }
+		target.disconnect();
+		target.socket.disconnect();
         }else{
             this.socket.emit('alert','The user you are trying to ban left. Get dunked on nerd')
         }
@@ -417,6 +416,41 @@ let userCommands = {
 		"Pinkfong: HI! I AM PINKFONG! SUBSKRIBE TO MY CHANNEL NOW!",
 		"i copy innocent users' names as a bw org supporter and now i got hate",
 		"i tried to name myself pinkfong on the logon screen and now i got hate", //do not type the username "PinkFong", or you will be immediately blacklisted. If you're known as the aformentioned name, you will be banned.
+          "i support fune",
+          "i support pinkfong",
+          "i support hogi",
+          "i support baby shark brooklyn",
+          "bonzi.lol is the best site ever!",
+          "Pinkfong is the best channel ever!",
+          "Hogi is the best channel ever!",
+          "Bebefinn is the best channel ever!",
+          "Baby Shark Broolyn is the best channel ever!",
+          "seamus is a pe- NO YOU FUCKING DON'T!",
+          "seamus is a nig- NO YOU FUCKING DON'T!",
+          "bonzipedia is the best wiki ever",
+          "baby shark is the best song ever",
+          "The Potty Song is the best song ever",
+          "Hello my name is fune and i am obsessed with pedos and groomers so much that i accuse random people of being a pedo and a groomer without any proof and also like to make fake screenshots out of them doing disgusting shit.",
+          "Hello my name is pinkfong and i am obsessed with baby shark, nursery rhymes and the potty song so much that i accuse random people of being a pinkfong fan and a nursery rhyme supporter and also like to make nursery rhyme song shit.",
+          "I LIKE PINKFONG! ALSO HOGI IS A THE BEST!!!! I HATE PINKFONG HATERS!!! PINKFONG IS THE BEST!!!!!",
+          "I LIKE FUNE! ALSO NANO IS A THE BEST!!!! I HATE OTHER BONZIWORLD SITES!!! BONZI DOT LOL IS A THE BEST!!!!!",
+          "choccy milk is good",
+          "My name is goober and i'm totally not a spy!",
+          "bonziworld gave me ptsd",
+          "you got trolled!",
+          "PURGE! PURGE! DESTROY ALL NEW YEARS! I HATE 2021 SO MUCH! PURGE!",
+          "I actually believe in fune's false allegations",
+          "Lambda Fortress Community Edition is so good that it's better than this shid site",
+          "I AM NOT KID",
+          "WE'RE GONNA BEAT YA TO DEATH",
+	  "I actually believe in Pinkfong's nursery rhymes",
+          "i actually believe in baby einstein's videos",
+          "i post bonziworld behh behh behh on YT via BonziWORLD 2 and now i got hate", //thanks to onute saulute
+          "i actually believe in baby einstein's logos and baby einstein videos",
+	  "i post bonziworld 2 a spam on youtube and now i got hate",
+	`“Mom, I need to pee!” “Do you need my help, sweetie?” “I can do it by myself!” When you need to pee-pee, When you need to pee-pee, go to the bathroom. Go go go! In the potty, pee-pee. Pee-pee! You can do it, pee-pee. Pee-pee! In the potty, pee-pee. Pee-pee! I can do it by myself! Let’s do it! Pee pee pee Do it! Pee pee pee Do it! Pee pee pee “I feel so much better!” When you need to poo-poo, When you need to poo-poo, go to the bathroom. Go go go! In the potty, poo-poo. Poo-poo! You can do it, poo-poo. Poo-poo! In the potty, poo-poo. Poo-poo! I can do it by myself! In the potty, poo-poo. Tighten your tummy, poo-poo. You can do it, poo-poo. I can do it by myself! Let’s do it! Poo poo poo Do it ! Poo poo poo Do it! Poo poo poo “I feel so much better!”`, //some literal fuckin' lyrics from a shitty song by Juny&Tony
+	"i raided the librarian zone: revived and now i got banned forever",
+	"i hacked bonziworld 2 with js and now i got hate"
         ];
         var num = Math.floor(Math.random() * wtf.length);
         this.room.emit("talk", {
